@@ -21,55 +21,55 @@ export default function Footer () {
       <div className='flex flex-col justify-between md:flex-row border-b-2 border-[#C80101]'>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Menu</h1>
-          <p className='text-xs pl-3 p-1'>Idea strony</p>
-          <p className='text-xs pl-3 p-1'>Najnowsze Artykuły</p>
-          <p className='text-xs pl-3 p-1'>Popularne Artykuły</p>
-          <p className='text-xs pl-3 p-1'>Wszystkie Kategorie</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Idea strony</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Najnowsze Artykuły</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Popularne Artykuły</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Wszystkie Kategorie</p>
         </div>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Social Media</h1>
           <Link
             href={'https://patronite.pl/ksaweryknotz'}
             target='_blank'
-            className='text-xs pl-3 p-1'
+            className='text-xs pl-3 p-1 w-fit'
           >
             Patronite
           </Link>
-          <p className='text-xs pl-3 p-1'>Youtube</p>
-          <p className='text-xs pl-3 p-1'>Facebook</p>
-          <p className='text-xs pl-3 p-1'>Instagram</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Youtube</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Facebook</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Instagram</p>
         </div>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Twórczość K. Knotz’a</h1>
           <Link
             href={'https://szansaspotkania.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1'
+            className='text-xs pl-3 p-1 w-fit'
           >
             SzansaSpotkania.pl
           </Link>
           <Link
             href={'https://ksaweryknotz.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1'
+            className='text-xs pl-3 p-1 w-fit'
           >
             KsaweryKnotz.pl
           </Link>
           <Link
             href={'https://komuniamalzenstw.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1'
+            className='text-xs pl-3 p-1 w-fit'
           >
             KomuniaMalzenstw.pl
           </Link>
           <Link
             href={'https://mlodemalzenstwa.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1'
+            className='text-xs pl-3 p-1 w-fit'
           >
             MlodeMalzenstwa.pl
           </Link>
-          <p className='text-xs pl-3 p-1'>Instagram</p>
+          <p className='text-xs pl-3 p-1 w-fit'>Instagram</p>
         </div>
       </div>
       <div className='text-slate-500 flex flex-col'>
