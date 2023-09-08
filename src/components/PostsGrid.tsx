@@ -17,7 +17,7 @@ export default async function PostsGrid () {
     .then(res => res)
     .catch(err => console.log(err))
   return (
-    <div className='w-11/12 m-4 mx-auto'>
+    <div className='w-full'>
       <h1>Najnowsze Posty</h1>
       <button>Pokaż wszystkie</button>
       <div className='grid grid-cols-1 gap-4 xl:grid-cols-4 md:grid-cols-2'>
