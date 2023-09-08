@@ -112,8 +112,6 @@ export default function Slider () {
   const maxLeft = 0
   const minLeft = -WidthAllImage + WidthMarginImage
 
-  console.log(Images.length)
-
   return (
     <>
       <div className='overflow-hidden mt-4'>

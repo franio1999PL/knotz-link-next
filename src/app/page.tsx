@@ -96,6 +96,99 @@ export default function Home () {
       <div className='w-full mt-4'>
         <PostsGrid />
       </div>
+      <div className='w-full'>
+        <div className='flex justify-between items-center border-2  border-black rounded-full bg-bgmain'>
+          <h1 className='pl-4 font-bold text-base'>
+            ZOBACZ WSZYSTKIE POPULARNE POSTY
+          </h1>
+          <Link
+            href='#'
+            className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full'
+          >
+            <MoveRight size={36} />
+          </Link>
+        </div>
+      </div>
+      <h1 className='font-bold text-center p-4 mt-4'>Warto zobaczyć także:</h1>
+      <div className='flex flex-col w-full justify-center items-center gap-4 md:flex-row '>
+        <Link
+          href={'#'}
+          className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
+        >
+          <span className='bg-slate-50 border-2 border-black rounded-full px-2 py-1 select-none'>
+            Youtube
+          </span>
+          <Image
+            src={'/youtube.png'}
+            height={163}
+            width={163}
+            className='select-none'
+            alt=''
+          />
+        </Link>
+        <Link
+          href={'#'}
+          className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
+        >
+          <span className='bg-slate-50 border-2 border-black rounded-full px-2 py-1 select-none'>
+            Instagram
+          </span>
+          <Image
+            src={'/instagram.png'}
+            height={163}
+            width={163}
+            className='select-none'
+            alt=''
+          />
+        </Link>
+        <Link
+          href={'#'}
+          className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
+        >
+          <span className='bg-slate-50 border-2 border-black rounded-full px-2 py-1 select-none'>
+            Facebook
+          </span>
+          <Image
+            src={'/facebook.png'}
+            height={163}
+            width={163}
+            className='select-none'
+            alt=''
+          />
+        </Link>
+        <Link
+          href={'https://szansaspotkania.pl'}
+          target='_blank'
+          className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
+        >
+          <span className='bg-slate-50 border-2 text-center border-black rounded-full px-2 py-1 select-none'>
+            Szansa Spotkania
+          </span>
+          <Image
+            src={'/szansaspotkania.png'}
+            height={163}
+            className='select-none flex-1'
+            width={163}
+            alt=''
+          />
+        </Link>
+        <Link
+          href={'https://patronite.pl/ksaweryknotz'}
+          target='_blank'
+          className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
+        >
+          <span className='bg-slate-50 border-2 border-black rounded-full px-2 py-1 select-none'>
+            Patronite
+          </span>
+          <Image
+            src={'/patronite.png'}
+            height={360}
+            width={360}
+            className='select-none md:max-w-[260px] max-w-[224px]'
+            alt=''
+          />
+        </Link>
+      </div>
     </main>
   )
 }

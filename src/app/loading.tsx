@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function page () {
+export default function loading () {
   return (
     <div className='min-h-screen w-full flex flex-col gap-4 justify-center items-center'>
       <Image

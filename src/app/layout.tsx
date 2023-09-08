@@ -5,6 +5,7 @@ import { Lexend_Peta } from 'next/font/google'
 import PageWrapper from '@/components/PageWrapper'
 import HeaderMenu from '@/components/HeaderMenu'
 import { Toaster } from '@/components/ui/toaster'
+import Footer from '@/components/Footer'
 
 const lexendPeta = Lexend_Peta({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout ({
       <body className={`${lexendPeta.className} bg-slate-50`}>
         <HeaderMenu />
         <PageWrapper>{children}</PageWrapper>
+        <Footer />
         <Toaster />
       </body>
     </html>
