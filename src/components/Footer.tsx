@@ -79,14 +79,14 @@ export default function Footer () {
         <Link
           href={'https://etiudavintage.com'}
           target='_blank'
-          className='text-xs pl-3 p-1'
+          className='text-xs pl-3 p-1 w-fit'
         >
           Designed by Mikołaj Sikora
         </Link>
         <Link
           href={'https://bladywebdev.pl'}
           target='_blank'
-          className='text-xs pl-3 p-1'
+          className='text-xs pl-3 p-1 w-fit'
         >
           Developed by Franciszek Sikora
         </Link>
