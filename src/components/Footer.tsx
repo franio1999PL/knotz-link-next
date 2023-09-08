@@ -28,7 +28,13 @@ export default function Footer () {
         </div>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Social Media</h1>
-          <p className='text-xs pl-3 p-1'>Patronite</p>
+          <Link
+            href={'https://patronite.pl/ksaweryknotz'}
+            target='_blank'
+            className='text-xs pl-3 p-1'
+          >
+            Patronite
+          </Link>
           <p className='text-xs pl-3 p-1'>Youtube</p>
           <p className='text-xs pl-3 p-1'>Facebook</p>
           <p className='text-xs pl-3 p-1'>Instagram</p>
