@@ -11,7 +11,7 @@ import {
 
 export default async function PostsGrid () {
   const posts = await fetch(
-    'https://cms.bladywebdev.pl/items/pocketposts?limit=20&sort=-time_added'
+    'https://api.knotz.link/?limit=20&page=1&sort=-time_added'
   )
     .then(res => res.json())
     .then(res => res)

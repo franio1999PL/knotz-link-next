@@ -20,7 +20,7 @@ export default function Home () {
             Knotz.Link
           </h1>
           <p className='text-sm font-bold text-center'>
-            Wyselekcjonowane treści przez Ojca Ksawerego Knotz’a
+            Treści wyselekcjonowane przez Ojca Ksawerego Knotza
           </p>
         </div>
         <div className='flex flex-col gap-4 flex-1'>
