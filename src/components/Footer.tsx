@@ -91,7 +91,7 @@ export default function Footer () {
           Developed by Franciszek Sikora
         </Link>
       </div>
-      <div className='flex justify-center items-center p-8'>
+      <div className='flex justify-center items-center p-16 sm:p-8'>
         <Image src={'/BigLogo.png'} width={128} height={128} alt='biglogo' />
         <h1
           className={`${lexendPeta.className} text-3xl text-center font-bold text-[#c80101]`}
