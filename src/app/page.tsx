@@ -110,7 +110,7 @@ export default function Home () {
         </div>
       </div>
       <h1 className='font-bold text-center p-4 mt-4'>Warto zobaczyć także:</h1>
-      <div className='flex flex-col w-full justify-center items-center gap-4 md:flex-row '>
+      <div className='flex flex-col flex-wrap lg:flex-nowrap w-full justify-center items-center gap-2 md:flex-row '>
         <Link
           href={'#'}
           className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
@@ -184,7 +184,7 @@ export default function Home () {
             src={'/patronite.png'}
             height={360}
             width={360}
-            className='select-none md:max-w-[260px] max-w-[224px]'
+            className='select-none md:max-w-[240px] max-w-[224px]'
             alt=''
           />
         </Link>
