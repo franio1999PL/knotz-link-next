@@ -25,15 +25,14 @@ export default async function page ({
     .then(res => res.json())
     .catch(err => console.log(err))
 
-  if (!searchParams.page)
-    return redirect(`/category?category=${searchParams.category}&page=1`)
-
   if (!searchParams.category)
     return (
       <div className='min-h-[60vh] w-full flex justify-center items-center'>
         <p className='text-center text-xl'>Brak Kategorii</p>
       </div>
     )
+  if (!searchParams.page)
+    return redirect(`/category?category=${searchParams.category}&page=1`)
 
   return (
     <div className='w-full'>
