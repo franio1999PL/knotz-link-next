@@ -19,22 +19,38 @@ export default async function PostsGrid () {
   return (
     <div className='w-full'>
       <div className='flex flex-col gap-4 p-4 justify-center items-center w-full'>
-        <h1 className='text-center text-xl font-bold'>Najnowsze Posty</h1>
-        <button className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2'>
-          Pokaż wszystkie
-        </button>
+        <>
+          <h1 className='text-center text-xl font-bold'>Najnowsze Posty</h1>
+          <button className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2'>
+            Pokaż wszystkie
+          </button>
+        </>
       </div>
       <div className='grid grid-cols-1 gap-4 xl:grid-cols-4 md:grid-cols-2'>
         {posts.data.map(
-          ({ id, url, title, description, time_added, tags }: any) => (
+          ({
+            id,
+            url,
+            title,
+            description,
+            time_added,
+            tags
+          }: {
+            id: string
+            url: string
+            title: string
+            description: string
+            time_added: string
+            tags: string[]
+          }) => (
             <div
               className='bg-[#FDE0E0] flex flex-col items-center justify-center border-2 rounded-2xl border-black my-4 p-4'
               key={id}
             >
               <div className='flex items-center gap-2 w-full font-bold'>
                 {/* <div className='my-4 xl:ml-4 md:ml-4 sm:ml-2'>
-              {ReadableDate(time_added)}
-            </div> */}
+                  {ReadableDate(time_added)}
+                </div> */}
                 <PostAddedDate time_added={time_added} />
 
                 <div className='flex-1 w-full flex justify-end'>
@@ -55,10 +71,10 @@ export default async function PostsGrid () {
               </div>
 
               <div className='m-4 flex-1 flex flex-col gap-4 items-center'>
-                <h1 className='text-sm font-bold text-left break-words'>
-                  {title !== '' ? title : null}
+                <h1 className='text-sm font-bold text-left break-words font-sans'>
+                  {String(title) !== '' ? title : 'Brak Opisu'}
                 </h1>
-                <p className='text-sm text-left break-words'>
+                <p className='text-sm text-left break-words font-sans'>
                   {/* {description !== '' ? description : null} */}
                   <PostDescription longText={description} maxLength={80} />
                 </p>
