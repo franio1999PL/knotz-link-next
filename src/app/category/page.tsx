@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/tooltip'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { redirect } from 'next/navigation'
 
 type Props = { params: { limit: string; page: string; category: string } }
 
@@ -18,17 +19,14 @@ export default async function page ({
   params: { category: string | null; page: string | null }
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  //   const url = `https://cms.bladywebdev.pl/items/pocketposts?${
-  //     limit ? `limit=${limit}` : 'limit=20'
-  //   }&${page ? `page=${page}` : 'page=1'}&${
-  //     category ? `search=${category}` : ''
-  //   }&sort=-time_added`
-
   const url = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&search=${searchParams.category}&page=${searchParams.page}`
 
   const posts = await fetch(url)
     .then(res => res.json())
     .catch(err => console.log(err))
+
+  if (!searchParams.page)
+    return redirect(`/category?category=${searchParams.category}&page=1`)
 
   if (!searchParams.category)
     return (
