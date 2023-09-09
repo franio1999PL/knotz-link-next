@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils'
-import { useState, useEffect } from 'react'
 
 type Props = {
   postsPerPage: number
