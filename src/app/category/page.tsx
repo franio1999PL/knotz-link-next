@@ -87,9 +87,6 @@ export default async function page ({
           <h1 className='text-center text-xl font-bold'>
             Kategoria: {searchParams.category}
           </h1>
-          <button className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2'>
-            Pokaż wszystkie
-          </button>
         </>
       </div>
       <div className='grid grid-cols-1 gap-4 xl:grid-cols-4 md:grid-cols-2'>
