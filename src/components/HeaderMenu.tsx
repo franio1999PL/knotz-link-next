@@ -77,16 +77,74 @@ export default function HeaderMenu () {
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
+              <SheetTitle className='text-center'>Menu</SheetTitle>
               <SheetDescription>
-                <p className='text-black'>Home</p>
-                <p className='text-black'>Idea Strony</p>
-                <p className='text-black'>Popularne posty</p>
-                <p className='text-black'>Najnowsze posty</p>
-                <p className='text-black'>Kategorie</p>
-                <p className='text-black'>Wesprzyj mnie w mojej pracy</p>
-                <p className='text-black'>SzansaSpotkania.pl</p>
-                <p className='text-black'>KsaweryKnotz.pl</p>
+                <ul className='mt-4 flex flex-col  gap-4 justify-start items-start'>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      Strona Główna
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      Idea Strony
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      Popularne posty
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      Najnowsze posty
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      Kategorie
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      Wesprzyj mnie w mojej pracy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      SzansaSpotkania.pl
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={'/'}
+                      className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
+                    >
+                      KsaweryKnotz.pl
+                    </Link>
+                  </li>
+                </ul>
               </SheetDescription>
             </SheetHeader>
           </SheetContent>
