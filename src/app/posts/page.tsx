@@ -39,8 +39,6 @@ export default async function page ({
     searchParam ? `&search=${searchParam}` : ''
   }&page=${pageParam}`
 
-  console.log(fetchUrl)
-
   const posts = await fetch(fetchUrl)
     .then(res => res.json())
     .catch(err => console.error(err))
