@@ -10,14 +10,15 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { redirect } from 'next/navigation'
 
-type Props = { params: { limit: string; page: string; category: string } }
+type PropsParams = { category: string | null; page: string | null }
+type PropsSearchParams = { [key: string]: string | string[] | undefined }
 
 export default async function page ({
   params,
   searchParams
 }: {
-  params: { category: string | null; page: string | null }
-  searchParams: { [key: string]: string | string[] | undefined }
+  params: PropsParams
+  searchParams: PropsSearchParams
 }) {
   const url = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&search=${searchParams.category}&page=${searchParams.page}`
 

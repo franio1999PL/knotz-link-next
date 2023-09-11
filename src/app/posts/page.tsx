@@ -1,70 +1,160 @@
-'use client'
-import useSWR from 'swr'
-import SearchPostsGrid from '@/components/SearchPostsGrid'
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import Pagination from '@/components/Pagination'
+import { PostAddedDate } from '@/components/PostAddedDateFormat'
+import { PostDescription } from '@/components/PostDescription'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/components/ui/tooltip'
+import Link from 'next/link'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { redirect } from 'next/navigation'
 
-// @ts-ignore
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+type PropsParams = { search: string | null; page: string | null }
+type PropsSearchParams = { [key: string]: string | string[] | undefined }
 
-export default function page () {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage, setPostsPerPage] = useState(20)
+export default async function page ({
+  params,
+  searchParams
+}: {
+  params: PropsParams
+  searchParams: PropsSearchParams
+}) {
+  const urlSearch = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&sort=-time_favorited&search=${searchParams.search}&page=${searchParams.page}`
+  const urlAllPosts = `https://cms.bladywebdev.pl/items/pocketposts?limit20&sort=-time_favorited&page=${searchParams.page}`
 
-  const searchParams = useSearchParams()
-  const page = searchParams.get('page')
-  const search = searchParams.get('search')
-  const limit = searchParams.get('limit')
+  let posts
 
-  const { data, error } = useSWR(
-    `https://cms.bladywebdev.pl/items/pocketposts/${
-      limit !== null ? '?limit=' + limit : '?limit=1000'
-    }${page !== null ? '&page=' + page : '&page=1'}${
-      search !== null ? '&search=' + search : ''
-    }&sort=-time_added`,
-    fetcher
-  )
+  if (searchParams.search) {
+    posts = await fetch(urlSearch)
+      .then(res => res.json())
+      .catch(err => console.log(err))
+  }
 
-  const { data: PostsLength, error: err } = useSWR(
-    `https://cms.bladywebdev.pl/items/pocketposts?limit=100000${
-      search !== null ? '&search=' + search : ''
-    }`,
-    fetcher
-  )
-
-  useEffect(() => {
-    const setOptions = () => {
-      if (page && search && limit) {
-      }
-    }
-    setOptions()
-  }, [])
-
-  if (error || err) return <div>Brak wyników</div>
-  if (!data || !PostsLength) return <div>Loading...</div>
-
-  const posts = data
-  const postLength = PostsLength
-
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = postLength?.data.slice(indexOfFirstPost, indexOfLastPost)
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  if (!searchParams.search) {
+    posts = await fetch(urlAllPosts)
+      .then(res => res.json())
+      .catch(err => console.log(err))
+  }
+  if (!searchParams.page)
+    return redirect(`/posts?search=${searchParams.search}&page=1`)
 
   return (
-    <div className='min-h-screen'>
-      <div className='flex justify-center items-center'>
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={postLength?.data.length}
-          paginate={paginate}
-          search={String(search)}
-          currentPage={currentPage}
-        />
+    <div className='w-full'>
+      <div className='flex flex-col gap-4 p-4 justify-center items-center w-full'>
+        <>
+          <div>
+            Paginacja:
+            <div className='flex justify-center items-center gap-2 p-4'>
+              {parseInt(String(searchParams.page)) > 1 ? (
+                <Link
+                  href={`/posts?search=${searchParams.category}&page=${String(
+                    parseInt(String(searchParams.page)) - 1
+                  )}`}
+                  className='bg-slate-50 border-2 border-black rounded-full transition-all opacity-80 duration-150 hover:bg-bgmain hover:opacity-100 shadow-lg'
+                >
+                  <ArrowLeft />
+                </Link>
+              ) : (
+                <>
+                  <button
+                    className='bg-slate-50 border-2 border-black rounded-full transition-all opacity-50 duration-150  cursor-not-allowed'
+                    disabled
+                  >
+                    <ArrowLeft />
+                  </button>
+                </>
+              )}
+
+              <div className='px-2 py-2 bg-bgmain rounded-full shadow-lg'>
+                {searchParams.page}
+              </div>
+              {posts.data.length == 20 ? (
+                <Link
+                  href={`/category?category=${
+                    searchParams.category
+                  }&page=${String(parseInt(String(searchParams.page)) + 1)}`}
+                  className='bg-slate-50 border-2 border-black rounded-full transition-all opacity-80 duration-150 hover:bg-bgmain hover:opacity-100 shadow-lg'
+                >
+                  <ArrowRight />
+                </Link>
+              ) : (
+                <button
+                  className='bg-slate-50 border-2 border-black rounded-full transition-all opacity-50 duration-150  cursor-not-allowed'
+                  disabled
+                >
+                  <ArrowRight />
+                </button>
+              )}
+            </div>
+          </div>
+          <h1 className='text-center text-xl font-bold'>
+            Kategoria: {searchParams.category}
+          </h1>
+        </>
       </div>
-      <SearchPostsGrid posts={currentPosts} search={search} />
+      <div className='grid grid-cols-1 gap-4 xl:grid-cols-4 md:grid-cols-2'>
+        {posts?.data.map(
+          ({
+            id,
+            url,
+            title,
+            description,
+            time_added,
+            tags
+          }: {
+            id: string
+            url: string
+            title: string
+            description: string
+            time_added: string
+            tags: string[]
+          }) => (
+            <div
+              className='bg-[#FDE0E0] flex flex-col items-center justify-center border-2 rounded-2xl border-black my-4 p-4'
+              key={id}
+            >
+              <div className='flex items-center gap-2 w-full font-bold'>
+                {/* <div className='my-4 xl:ml-4 md:ml-4 sm:ml-2'>
+                  {ReadableDate(time_added)}
+                </div> */}
+                <PostAddedDate time_added={time_added} />
+
+                <div className='flex-1 w-full flex justify-end'>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className=' w-fit bg-white text-sm uppercase px-1 py-1 h-fit border-2 border-black rounded-xl '>
+                        {tags.length > 0 ? 'Tagi' : 'Brak Tagów'}
+                      </TooltipTrigger>
+                      {tags &&
+                        tags.map((tag: string, index: number) => (
+                          <TooltipContent key={index}>
+                            <p>{tag}</p>
+                          </TooltipContent>
+                        ))}
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
+              </div>
+
+              <div className='m-4 flex-1 flex flex-col gap-4 items-center'>
+                <h1 className='text-sm font-bold text-left break-words font-sans'>
+                  {String(title) !== '' ? title : 'Brak Opisu'}
+                </h1>
+                <p className='text-sm text-left break-words font-sans'>
+                  {/* {description !== '' ? description : null} */}
+                  <PostDescription longText={description} maxLength={80} />
+                </p>
+              </div>
+              <div className='font-bold px-2 mx-[2px] bg-white border-2 border-black rounded-xl w-fit'>
+                <Link href={url} target='_blank'>
+                  Czytaj Dalej!
+                </Link>
+              </div>
+            </div>
+          )
+        )}
+      </div>
     </div>
   )
 }
