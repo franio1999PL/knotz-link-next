@@ -36,8 +36,8 @@ export default async function page ({
       .then(res => res.json())
       .catch(err => console.log(err))
   }
-  if (!searchParams.page)
-    return redirect(`/posts?search=${searchParams.search}&page=1`)
+  // if (!searchParams.page)
+  //   return redirect(`/posts?search=${searchParams.search}&page=1`)
 
   return (
     <div className='w-full'>
