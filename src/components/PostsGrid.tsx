@@ -21,9 +21,12 @@ export default async function PostsGrid () {
       <div className='flex flex-col gap-4 p-4 justify-center items-center w-full'>
         <>
           <h1 className='text-center text-xl font-bold'>Najnowsze Posty</h1>
-          <button className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2'>
+          <Link
+            href={`/posts`}
+            className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2'
+          >
             Pokaż wszystkie
-          </button>
+          </Link>
         </>
       </div>
       <div className='grid grid-cols-1 gap-4 xl:grid-cols-4 md:grid-cols-2'>

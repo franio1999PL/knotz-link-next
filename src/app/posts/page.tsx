@@ -20,24 +20,30 @@ export default async function page ({
   params: PropsParams
   searchParams: PropsSearchParams
 }) {
-  const urlSearch = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&sort=-time_favorited&search=${searchParams.search}&page=${searchParams.page}`
-  const urlAllPosts = `https://cms.bladywebdev.pl/items/pocketposts?limit20&sort=-time_favorited&page=${searchParams.page}`
+  const searchParam = searchParams.search || ''
+  const pageParam = searchParams.page || '1'
 
-  let posts
+  const pageValidation = /^[0-9]+$/
 
-  if (searchParams.search) {
-    posts = await fetch(urlSearch)
-      .then(res => res.json())
-      .catch(err => console.log(err))
+  const searchValidation = /^[a-zA-Z\s]*$/
+
+  if (!pageValidation.test(String(pageParam))) {
+    redirect('/posts')
   }
 
-  if (!searchParams.search) {
-    posts = await fetch(urlAllPosts)
-      .then(res => res.json())
-      .catch(err => console.log(err))
+  if (!searchValidation.test(String(searchParam))) {
+    redirect('/posts')
   }
-  if (!searchParams.page)
-    return redirect(`/posts?search=${searchParams.search || ''}&page=1`)
+
+  const fetchUrl = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&sorted=-time_favorited${
+    searchParam ? `&search=${searchParam}` : ''
+  }&page=${pageParam}`
+
+  console.log(fetchUrl)
+
+  const posts = await fetch(fetchUrl)
+    .then(res => res.json())
+    .catch(err => console.error(err))
 
   return (
     <div className='w-full'>
@@ -46,10 +52,10 @@ export default async function page ({
           <div>
             Paginacja:
             <div className='flex justify-center items-center gap-2 p-4'>
-              {parseInt(String(searchParams.page)) > 1 ? (
+              {parseInt(String(pageParam)) > 1 ? (
                 <Link
-                  href={`/posts?search=${searchParams.category}&page=${String(
-                    parseInt(String(searchParams.page)) - 1
+                  href={`/posts?search=${searchParam}&page=${String(
+                    parseInt(String(pageParam)) - 1
                   )}`}
                   className='bg-slate-50 border-2 border-black rounded-full transition-all opacity-80 duration-150 hover:bg-bgmain hover:opacity-100 shadow-lg'
                 >
@@ -67,13 +73,13 @@ export default async function page ({
               )}
 
               <div className='px-2 py-2 bg-bgmain rounded-full shadow-lg'>
-                {searchParams.page}
+                {pageParam}
               </div>
-              {posts.data.length == 20 ? (
+              {posts?.data?.length == 20 ? (
                 <Link
-                  href={`/category?category=${
-                    searchParams.category
-                  }&page=${String(parseInt(String(searchParams.page)) + 1)}`}
+                  href={`/posts?search=${searchParam}&page=${String(
+                    parseInt(String(pageParam)) + 1
+                  )}`}
                   className='bg-slate-50 border-2 border-black rounded-full transition-all opacity-80 duration-150 hover:bg-bgmain hover:opacity-100 shadow-lg'
                 >
                   <ArrowRight />
@@ -89,7 +95,7 @@ export default async function page ({
             </div>
           </div>
           <h1 className='text-center text-xl font-bold'>
-            Kategoria: {searchParams.category}
+            Wyszukiwanie: {searchParam}
           </h1>
         </>
       </div>
