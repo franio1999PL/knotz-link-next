@@ -98,7 +98,7 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'/posts'}
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       Popularne posty
@@ -106,7 +106,7 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'/posts'}
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       Najnowsze posty
@@ -114,7 +114,7 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'/categories'}
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       Kategorie
@@ -122,7 +122,8 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'https://patronite.pl/ksaweryknotz'}
+                      target='_blank'
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       Wesprzyj mnie w mojej pracy
@@ -130,7 +131,8 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'https://szansaspotkania.pl'}
+                      target='_blank'
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       SzansaSpotkania.pl
@@ -138,7 +140,8 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'https://ksaweryknotz.pl'}
+                      target='_blank'
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       KsaweryKnotz.pl

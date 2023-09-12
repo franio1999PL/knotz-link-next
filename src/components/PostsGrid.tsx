@@ -20,10 +20,10 @@ export default async function PostsGrid () {
     <div className='w-full'>
       <div className='flex flex-col gap-4 p-4 justify-center items-center w-full'>
         <>
-          <h1 className='text-center text-xl font-bold'>Najnowsze Posty</h1>
+          <h1 className='text-center text-xl font-bold '>Najnowsze Posty</h1>
           <Link
             href={`/posts`}
-            className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2'
+            className='uppercase font-semibold text-sm border-2 border-black rounded-full px-2 transition-all duration-100 hover:scale-105  hover:bg-slate-200'
           >
             Pokaż wszystkie
           </Link>
@@ -82,11 +82,14 @@ export default async function PostsGrid () {
                   <PostDescription longText={description} maxLength={80} />
                 </p>
               </div>
-              <div className='font-bold px-2 mx-[2px] bg-white border-2 border-black rounded-xl w-fit'>
-                <Link href={url} target='_blank'>
-                  Czytaj Dalej!
-                </Link>
-              </div>
+
+              <Link
+                href={url}
+                target='_blank'
+                className='font-bold px-2 mx-[2px] bg-white border-2 border-black rounded-xl w-fit transition-all duration-100 hover:scale-105 hover:bg-slate-200'
+              >
+                Czytaj Dalej!
+              </Link>
             </div>
           )
         )}

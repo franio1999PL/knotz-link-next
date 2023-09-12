@@ -21,57 +21,87 @@ export default function Footer () {
       <div className='flex flex-col justify-between md:flex-row border-b-2 border-[#C80101]'>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Menu</h1>
-          <Link href={'/idea-strony'} className='text-xs pl-3 p-1 w-fit'>
+          <Link
+            href={'/idea-strony'}
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
+          >
             Idea strony
           </Link>
-          <p className='text-xs pl-3 p-1 w-fit'>Najnowsze Artykuły</p>
-          <p className='text-xs pl-3 p-1 w-fit'>Popularne Artykuły</p>
-          <p className='text-xs pl-3 p-1 w-fit'>Wszystkie Kategorie</p>
+          <Link
+            href={'/posts'}
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
+          >
+            Najnowsze Artykuły
+          </Link>
+          <Link
+            href={'/posts'}
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
+          >
+            Popularne Artykuły
+          </Link>
+          <Link
+            href={'/categories'}
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
+          >
+            Wszystkie Kategorie
+          </Link>
         </div>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Social Media</h1>
           <Link
             href={'https://patronite.pl/ksaweryknotz'}
             target='_blank'
-            className='text-xs pl-3 p-1 w-fit'
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
           >
             Patronite
           </Link>
-          <p className='text-xs pl-3 p-1 w-fit'>Youtube</p>
-          <p className='text-xs pl-3 p-1 w-fit'>Facebook</p>
-          <p className='text-xs pl-3 p-1 w-fit'>Instagram</p>
+          <p className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'>
+            Youtube
+          </p>
+          <Link
+            href={'https://www.facebook.com/profile.php?id=100064857515721'}
+            target='_blank'
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
+          >
+            Facebook
+          </Link>
+          <p className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'>
+            Instagram
+          </p>
         </div>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Twórczość K. Knotz’a</h1>
           <Link
             href={'https://szansaspotkania.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1 w-fit'
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
           >
             SzansaSpotkania.pl
           </Link>
           <Link
             href={'https://ksaweryknotz.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1 w-fit'
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
           >
             KsaweryKnotz.pl
           </Link>
           <Link
             href={'https://komuniamalzenstw.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1 w-fit'
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
           >
             KomuniaMalzenstw.pl
           </Link>
           <Link
             href={'https://mlodemalzenstwa.pl'}
             target='_blank'
-            className='text-xs pl-3 p-1 w-fit'
+            className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
           >
             MlodeMalzenstwa.pl
           </Link>
-          <p className='text-xs pl-3 p-1 w-fit'>Instagram</p>
+          <p className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'>
+            Instagram
+          </p>
         </div>
       </div>
       <div className='text-slate-500 flex flex-col'>
@@ -81,14 +111,14 @@ export default function Footer () {
         <Link
           href={'https://etiudavintage.com'}
           target='_blank'
-          className='text-xs pl-3 p-1 w-fit'
+          className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
         >
           Designed by Mikołaj Sikora
         </Link>
         <Link
           href={'https://bladywebdev.pl'}
           target='_blank'
-          className='text-xs pl-3 p-1 w-fit'
+          className='text-xs pl-3 p-1 w-fit transition-all duration-100 hover:scale-105 hover:underline'
         >
           Developed by Franciszek Sikora
         </Link>

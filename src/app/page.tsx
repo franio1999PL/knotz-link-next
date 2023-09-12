@@ -30,12 +30,18 @@ export default async function Home () {
         </div>
         <div className='flex flex-col gap-4 flex-1'>
           <div className='flex flex-col gap-2 p-4 border-2 border-black rounded-3xl bg-bgmain '>
-            <button className='bg-slate-50 border-2 px-4 py-2 border-black rounded-full font-bold'>
+            <Link
+              href={'/categories'}
+              className='bg-slate-50 border-2 px-4 py-2 text-center border-black rounded-full font-bold transition-all duration-100 hover:scale-105'
+            >
               Wszystkie Kategorie
-            </button>
-            <button className='bg-slate-50 border-2 px-4 py-2 border-black rounded-full font-bold'>
+            </Link>
+            <Link
+              href={'/posts'}
+              className='bg-slate-50 border-2 px-4 py-2 text-center border-black rounded-full font-bold transition-all duration-100 hover:scale-105'
+            >
               Popularne Posty
-            </button>
+            </Link>
           </div>
           <div className='flex flex-col md:flex-row justify-center items-center p-4 border-2 border-black rounded-3xl bg-bgmain flex-1'>
             <div className='flex flex-col justify-center items-center'>
@@ -64,7 +70,7 @@ export default async function Home () {
             <Link
               href='https://ksaweryknotz.pl'
               target='_blank'
-              className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full'
+              className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full transition-all duration-100 hover:scale-105 hover:border-r-2 hover:bg-slate-200'
             >
               <MoveRight size={36} />
             </Link>
@@ -81,9 +87,12 @@ export default async function Home () {
       <div className='w-full border-t-2 border-black rounded-full my-4'></div>
       <div className='flex flex-col justify-center items-center gap-2'>
         <h1>Popularne Kategorie</h1>
-        <button className='uppercase text-xs px-1 border-2 border-black rounded-full text-slate-50 bg-red-700'>
+        <Link
+          href={'/categories'}
+          className='uppercase text-xs px-1 border-2 border-black rounded-full text-slate-50 bg-red-700 transition-all duration-100 hover:scale-105'
+        >
           Pokaż Wszystkie
-        </button>
+        </Link>
       </div>
       <div className='w-full shadow-sm'>
         <Slider Images={Images} />
@@ -91,9 +100,9 @@ export default async function Home () {
       <div className='flex justify-between items-center border-2 mt-8  border-black rounded-full bg-bgmain'>
         <h1 className='pl-4 font-bold text-base'>ZOBACZ WSZYSTKIE KATEGORIE</h1>
         <Link
-          href='#'
+          href={'/categories'}
           target='_blank'
-          className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full'
+          className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full transition-all duration-100 hover:scale-105 hover:border-r-2 hover:bg-slate-200'
         >
           <MoveRight size={36} />
         </Link>
@@ -107,8 +116,8 @@ export default async function Home () {
             ZOBACZ WSZYSTKIE POPULARNE POSTY
           </h1>
           <Link
-            href='#'
-            className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full'
+            href={'/posts'}
+            className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full transition-all duration-100 hover:scale-105 hover:border-r-2 hover:bg-slate-200 '
           >
             <MoveRight size={36} />
           </Link>
@@ -147,7 +156,8 @@ export default async function Home () {
           />
         </Link>
         <Link
-          href={'#'}
+          href={'https://www.facebook.com/profile.php?id=100064857515721'}
+          target='_blank'
           className='flex flex-col items-center justify-between gap-4 p-4 bg-bgmain border-2 border-black rounded-3xl min-h-[250px] min-w-[250px]'
         >
           <span className='bg-slate-50 border-2 border-black rounded-full px-2 py-1 select-none'>

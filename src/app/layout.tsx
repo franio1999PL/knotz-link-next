@@ -6,6 +6,7 @@ import PageWrapper from '@/components/PageWrapper'
 import HeaderMenu from '@/components/HeaderMenu'
 import { Toaster } from '@/components/ui/toaster'
 import Footer from '@/components/Footer'
+import PrivacyPolicyConsent from '@/components/PrivacyPolicyConsent'
 
 const lexendPeta = Lexend_Peta({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout ({
         <PageWrapper>{children}</PageWrapper>
         <Footer />
         <Toaster />
+        <PrivacyPolicyConsent />
       </body>
     </html>
   )
