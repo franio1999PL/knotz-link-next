@@ -165,7 +165,8 @@ export default function Slider ({ Images }: Props) {
                       'block min-w-[195px] min-h-[197px] w-full h-full max-w-[195px] max-h-[197px] shadow-lg border-2 border-black rounded-3xl relative overflow-hidden'
                     )}
                     style={{
-                      background: `url(https://cms.bladywebdev.pl/assets/${image}.jpg) no-repeat scroll center`
+                      background: `url(https://cms.bladywebdev.pl/assets/${image}.jpg) no-repeat scroll center`,
+                      backgroundSize: 'cover'
                     }}
                     // width='195'
                     // height='197'
