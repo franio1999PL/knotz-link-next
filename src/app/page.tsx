@@ -101,7 +101,6 @@ export default async function Home () {
         <h1 className='pl-4 font-bold text-base'>ZOBACZ WSZYSTKIE KATEGORIE</h1>
         <Link
           href={'/categories'}
-          target='_blank'
           className='border-l-2 border-y-2 p-4 border-black bg-slate-50 rounded-full transition-all duration-100 hover:scale-105 hover:border-r-2 hover:bg-slate-200'
         >
           <MoveRight size={36} />
