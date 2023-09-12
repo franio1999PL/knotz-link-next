@@ -6,11 +6,11 @@ import Slider from '@/components/Slider'
 import PostsGrid from '@/components/PostsGrid'
 
 export default async function Home () {
-  const Images = await fetch(
-    'https://cms.bladywebdev.pl/items/pcategories'
-  ).then(res => res.json())
+  const Images = await fetch('https://cms.bladywebdev.pl/items/pcategories', {
+    cache: 'reload'
+  }).then(res => res.json())
 
-  console.log(Images)
+  // console.log(Images)
   return (
     <main className='flex flex-col w-full'>
       <div className='flex flex-col gap-4 w-full md:flex-row'>
