@@ -6,9 +6,12 @@ import Slider from '@/components/Slider'
 import PostsGrid from '@/components/PostsGrid'
 
 export default async function Home () {
-  const Images = await fetch('https://cms.bladywebdev.pl/items/pcategories', {
-    cache: 'no-store'
-  }).then(res => res.json())
+  const Images = await fetch(
+    'https://cms.bladywebdev.pl/items/pcategories?sort=name',
+    {
+      cache: 'no-store'
+    }
+  ).then(res => res.json())
 
   // console.log(Images)
   return (

@@ -20,7 +20,7 @@ type Image = {
 
 export default async function page () {
   const Images: Data = await fetch(
-    'https://cms.bladywebdev.pl/items/pcategories',
+    'https://cms.bladywebdev.pl/items/pcategories?sort=name',
     {
       cache: 'no-store'
     }

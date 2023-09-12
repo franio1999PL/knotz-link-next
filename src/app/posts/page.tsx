@@ -35,7 +35,7 @@ export default async function page ({
     redirect('/posts')
   }
 
-  const fetchUrl = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&sorted=-time_favorited${
+  const fetchUrl = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&sort=-time_added${
     searchParam ? `&search=${searchParam}` : ''
   }&page=${pageParam}`
 
