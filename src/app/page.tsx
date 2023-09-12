@@ -7,7 +7,7 @@ import PostsGrid from '@/components/PostsGrid'
 
 export default async function Home () {
   const Images = await fetch('https://cms.bladywebdev.pl/items/pcategories', {
-    cache: 'reload'
+    cache: 'no-store'
   }).then(res => res.json())
 
   // console.log(Images)
