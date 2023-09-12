@@ -21,7 +21,9 @@ export default function Footer () {
       <div className='flex flex-col justify-between md:flex-row border-b-2 border-[#C80101]'>
         <div className='p-4 flex flex-col'>
           <h1 className='font-bold uppercase'>Menu</h1>
-          <p className='text-xs pl-3 p-1 w-fit'>Idea strony</p>
+          <Link href={'/idea-strony'} className='text-xs pl-3 p-1 w-fit'>
+            Idea strony
+          </Link>
           <p className='text-xs pl-3 p-1 w-fit'>Najnowsze Artykuły</p>
           <p className='text-xs pl-3 p-1 w-fit'>Popularne Artykuły</p>
           <p className='text-xs pl-3 p-1 w-fit'>Wszystkie Kategorie</p>

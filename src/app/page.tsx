@@ -5,7 +5,12 @@ import Link from 'next/link'
 import Slider from '@/components/Slider'
 import PostsGrid from '@/components/PostsGrid'
 
-export default function Home () {
+export default async function Home () {
+  const Images = await fetch(
+    'https://cms.bladywebdev.pl/items/pcategories'
+  ).then(res => res.json())
+
+  console.log(Images)
   return (
     <main className='flex flex-col w-full'>
       <div className='flex flex-col gap-4 w-full md:flex-row'>
@@ -81,7 +86,7 @@ export default function Home () {
         </button>
       </div>
       <div className='w-full shadow-sm'>
-        <Slider />
+        <Slider Images={Images} />
       </div>
       <div className='flex justify-between items-center border-2 mt-8  border-black rounded-full bg-bgmain'>
         <h1 className='pl-4 font-bold text-base'>ZOBACZ WSZYSTKIE KATEGORIE</h1>

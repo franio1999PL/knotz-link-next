@@ -90,7 +90,7 @@ export default function HeaderMenu () {
                   </li>
                   <li>
                     <Link
-                      href={'/'}
+                      href={'/idea-strony'}
                       className='text-black font-medium uppercase transition-all duration-150 hover:underline hover:opacity-60'
                     >
                       Idea Strony
