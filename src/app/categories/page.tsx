@@ -20,7 +20,7 @@ type Image = {
 
 export default async function page () {
   const Images: Data = await fetch(
-    'https://cms.bladywebdev.pl/items/pcategories?sort=name',
+    'https://cms.knotz.link/items/pcategories?sort=name',
     {
       cache: 'no-store'
     }
@@ -40,7 +40,7 @@ export default async function page () {
               'block min-w-[195px] min-h-[197px] w-full h-full max-w-[195px] max-h-[197px] shadow-lg border-2 border-black rounded-3xl relative overflow-hidden transition-all duration-150 hover:scale-110'
             )}
             style={{
-              background: `url(https://cms.bladywebdev.pl/assets/${image}.jpg) no-repeat scroll center`,
+              background: `url(https://cms.knotz.link/assets/${image}.jpg) no-repeat scroll center`,
               backgroundSize: 'cover'
             }}
           >

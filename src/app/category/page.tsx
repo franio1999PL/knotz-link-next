@@ -20,7 +20,7 @@ export default async function page ({
   params: PropsParams
   searchParams: PropsSearchParams
 }) {
-  const url = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&search=${searchParams.category}&page=${searchParams.page}&sort=-time_added`
+  const url = `https://cms.knotz.link/items/pocketposts?limit=20&search=${searchParams.category}&page=${searchParams.page}&sort=-time_added`
 
   const posts = await fetch(url)
     .then(res => res.json())

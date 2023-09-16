@@ -35,7 +35,7 @@ export default async function page ({
     redirect('/posts')
   }
 
-  const fetchUrl = `https://cms.bladywebdev.pl/items/pocketposts?limit=20&sort=-time_added${
+  const fetchUrl = `https://cms.knotz.link/items/pocketposts?limit=20&sort=-time_added${
     searchParam ? `&search=${searchParam}` : ''
   }&page=${pageParam}`
 
