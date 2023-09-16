@@ -11,11 +11,13 @@ import {
 
 export default async function PostsGrid () {
   const posts = await fetch(
-    'https://api.knotz.link/?limit=20&page=1&sort=-time_added'
+    'https://cms.knotz.link/items/pocketposts?limit=20&page=1&sort=-time_added'
   )
     .then(res => res.json())
     .then(res => res)
     .catch(err => console.log(err))
+
+  console.log(posts)
   return (
     <div className='w-full'>
       <div className='flex flex-col gap-4 p-4 justify-center items-center w-full'>
