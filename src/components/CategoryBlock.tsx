@@ -42,7 +42,7 @@ export default async function CategoryBlock ({ id }: Props) {
           }) => (
             <Link
               key={id}
-              href={`/posts?search=${nazwa}`}
+              href={`/category?category=${id}&page=1`}
               className={cn(
                 'block min-w-[195px] min-h-[197px] w-full h-full max-w-[195px] max-h-[197px] shadow-lg border-2 border-black rounded-3xl relative overflow-hidden transition-all duration-150 hover:scale-110'
               )}
