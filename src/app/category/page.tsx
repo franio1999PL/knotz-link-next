@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { redirect } from 'next/navigation'
 
-type PropsParams = { category: string | null; page: string | null }
+type PropsParams = { category: number | null; page: string | null }
 type PropsSearchParams = { [key: string]: string | string[] | undefined }
 
 export default async function page ({
@@ -20,11 +20,13 @@ export default async function page ({
   params: PropsParams
   searchParams: PropsSearchParams
 }) {
-  const url = `https://cms.knotz.link/items/pocketposts?limit=20&search=${searchParams.category}&page=${searchParams.page}&sort=-time_added`
+  const url = `https://cms.knotz.link/items/pocketposts?filter[category][_eq]=${searchParams.category}&limit=20&page=${searchParams.page}&sort=-time_added`
 
   const posts = await fetch(url)
     .then(res => res.json())
     .catch(err => console.log(err))
+
+  // console.log(posts)
 
   if (!searchParams.category)
     return (

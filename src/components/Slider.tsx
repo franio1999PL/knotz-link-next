@@ -4,102 +4,8 @@ import { useRef } from 'react'
 
 import { useWindowSize } from 'usehooks-ts'
 import { cn } from '@/lib/utils'
-import { SearchRedirect } from '@/actions/SearchRedirect'
+import { CategoryRedirect } from '@/actions/CategoryRedirect'
 
-// const Images = [
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   },
-//   {
-//     url: 'https://cms.bladywebdev.pl/assets/7d95b36d-e642-4f43-8bdb-947afeb12a73/psychologia.png',
-//     name: 'Psychologia'
-//   }
-// ]
 type Props = {
   Images: Data
 }
@@ -109,16 +15,18 @@ type Data = {
 }
 
 type Image = {
-  id: string
+  id: number
   status: 'draft' | 'published' | 'archived'
   url: string
   image: string
-  name: string
+  nazwa: string
 }
 
 export default function Slider ({ Images }: Props) {
   const containerRef = useRef(null)
   const { width } = useWindowSize()
+
+  // console.log(Images)
 
   const WidthAllImage = 195 * Images.data.length
   const WidthMarginImage = 16 * Images.data.length
@@ -147,7 +55,7 @@ export default function Slider ({ Images }: Props) {
             dragElastic={false} // Wyłączenie automatycznego powracania do pierwotnej pozycji
             dragMomentum={false} // Śledzenie przeciągania myszą
           >
-            {Images.data.map(({ image, name, id, url, status }) => {
+            {Images.data.map(({ image, nazwa, id }) => {
               return (
                 <motion.div
                   key={id}
@@ -158,14 +66,14 @@ export default function Slider ({ Images }: Props) {
                   <button
                     // onClick={() => SearchRedirect(image.name)}
 
-                    onDoubleClick={() => SearchRedirect(url)}
+                    onDoubleClick={() => CategoryRedirect(id)}
                     //   className='block w-full h-full border border-black rounded-lg object-fit '
                     //   className='flex items-end w-[400px] h-[400px] text-xl font-bold text-white shadow-md cursor-pointer rounded-2xl justify-normal'
                     className={cn(
                       'block min-w-[195px] min-h-[197px] w-full h-full max-w-[195px] max-h-[197px] shadow-lg border-2 border-black rounded-3xl relative overflow-hidden'
                     )}
                     style={{
-                      background: `url(https://cms.knotz.link/assets/${image}.jpg) no-repeat scroll center`,
+                      background: `url(https://cms.knotz.link/assets/${image}) no-repeat scroll center`,
                       backgroundSize: 'cover'
                     }}
                     // width='195'
@@ -175,7 +83,7 @@ export default function Slider ({ Images }: Props) {
                   >
                     <div className='mx-auto flex justify-center items-end w-full bottom-0 h-full font-bold break-words bg-opacity-20 hover:bg-opacity-10 rounded-3xl transition-opacity duration-150 ease-in absolute bg-slate-950 text-center'>
                       <h1 className='shadow-lg px-4 py-2 w-full h-full  max-h-[85px] min-h-[85px] text-slate-50 rounded-b-3xl bg-slate-950 bg-opacity-10'>
-                        {name}
+                        {nazwa}
                       </h1>
                     </div>
                   </button>

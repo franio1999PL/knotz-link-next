@@ -7,7 +7,7 @@ import PostsGrid from '@/components/PostsGrid'
 
 export default async function Home () {
   const Images = await fetch(
-    'https://cms.knotz.link/items/pcategories?sort=name',
+    'https://cms.knotz.link/items/kategorie?sort=nazwa',
     {
       cache: 'no-store'
     }
