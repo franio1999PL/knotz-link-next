@@ -26,6 +26,12 @@ export default async function page ({
     .then(res => res.json())
     .catch(err => console.log(err))
 
+  const categoryName = await fetch(
+    `https://cms.knotz.link/items/kategorie/${searchParams.category}`
+  )
+    .then(res => res.json())
+    .catch(err => console.log(err))
+
   // console.log(posts)
 
   if (!searchParams.category)
@@ -87,7 +93,8 @@ export default async function page ({
             </div>
           </div>
           <h1 className='text-center text-xl font-bold'>
-            Kategoria: {searchParams.category}
+            Kategoria:{' '}
+            <span className='uppercase'>{categoryName.data.nazwa}</span>
           </h1>
         </>
       </div>
