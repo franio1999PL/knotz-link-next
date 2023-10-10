@@ -24,7 +24,7 @@ export default async function page ({
 
   const url = `https://cms.knotz.link/items/pocketposts?filter[category][_eq]=${searchParams.category?.toString()}&limit=20&page=${searchParams.page?.toString()}&sort=-time_added`
 
-  const posts = await fetch(url)
+  const posts = await fetch(url, { cache: 'no-store' })
     .then(res => res.json())
     .catch(err => console.log(err))
 
@@ -34,7 +34,7 @@ export default async function page ({
     .then(res => res.json())
     .catch(err => console.log(err))
 
-  // console.log(posts)
+  console.log(posts)
 
   if (!searchParams.category)
     return (
