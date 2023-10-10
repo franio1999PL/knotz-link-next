@@ -20,7 +20,9 @@ export default async function page ({
   params: PropsParams
   searchParams: PropsSearchParams
 }) {
-  const url = `https://cms.knotz.link/items/pocketposts?filter[category][_eq]=${searchParams.category}&limit=20&page=${searchParams.page}&sort=-time_added`
+  if (!searchParams.category) return redirect('/')
+
+  const url = `https://cms.knotz.link/items/pocketposts?filter[category][_eq]=${searchParams.category?.toString()}&limit=20&page=${searchParams.page?.toString()}&sort=-time_added`
 
   const posts = await fetch(url)
     .then(res => res.json())
