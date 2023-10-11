@@ -75,7 +75,7 @@ export default function HeaderMenu () {
               <AlignJustify size={24} />
             </div>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent side='left'>
             <SheetHeader>
               <SheetTitle className='text-center'>Menu</SheetTitle>
               <SheetDescription>

@@ -34,7 +34,7 @@ export default async function page ({
     .then(res => res.json())
     .catch(err => console.log(err))
 
-  console.log(posts)
+  // console.log(posts)
 
   if (!searchParams.category)
     return (
